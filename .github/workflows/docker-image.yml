@@ -20,7 +20,7 @@ jobs:
         name: Build & push Docker image
         with:
           image: saurabhkr952/my-app
-          tags: v5
+          tags: my-portfolio
           registry: docker.io
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
