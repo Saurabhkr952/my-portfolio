@@ -1,3 +1,3 @@
 # my-portfolio
 
-Thanks to @jydygab
+Thanks to @judygab
