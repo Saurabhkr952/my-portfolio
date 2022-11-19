@@ -29,7 +29,7 @@ def update_k8s_manifest() {
     sh "git config --global user.name "Saurabh""
     sh "cat my-portfolio.yaml"
     sh "sed -i 's+saurabhkr952/my-portfolio:.*+saurabhkr952/my-portfolio:$IMAGE_NAME+g' my-portfolio.yaml"
-    sh "cat my-portfolio.yaml
+    sh "cat my-portfolio.yaml"
     sh "git add my-portfolio.yaml"
     sh "git commit -m 'Updated the my-portfolio yaml | Jenkins Pipeline'"
     sh "git remote -v"
