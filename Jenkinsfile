@@ -32,5 +32,19 @@ pipeline {
                 }
             }
         }
+        stage("checkout k8s manifest SCM") {
+            steps {
+                script {
+                    gv.k8s_manifest()
+                }
+            }
+        }
+        stage("update k8s manifest repo") {
+            steps {
+                script {
+                    gv.update_k8s_manifest()
+                }
+            }
+        }
     }
 }
