@@ -34,7 +34,7 @@ def update_k8s_manifest() {
     sh "git add my-portfolio.yaml"
     sh "git commit -m 'Updated the my-portfolio yaml | Jenkins Pipeline'"
     sh "git remote -v"
-    sh "https://saurabhkr952:$GIT_PASSWORD@github.com/saurabhkr952/k8s_manifest.git HEAD:main" 
+    sh "https://saurabhkr952:$GIT_PASSWORD@github.com/saurabhkr952/k8s_manifest.git" 
     }      
 }
 
