@@ -52,9 +52,7 @@ pipeline {
                     mimeType: 'text/html',to: "saurabhkr952@gmail.com"
             }
          success {
-               emailext attachmentsPattern: 'test.zip', body: '''${SCRIPT, template="groovy-html.template"}''', 
-                    subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
-                    mimeType: 'text/html',to: "saurabhkr952@gmail.com"
+               emailext body: 'A Test EMail', subject: 'Test', to: saurabhkr952@gmail.com
           }      
     }
         }
