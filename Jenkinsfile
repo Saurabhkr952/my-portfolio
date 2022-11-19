@@ -35,7 +35,7 @@ pipeline {
         stage("Checkout k8s manifest SCM") {
             steps {
                 script {
-                    gv.k8s_manifest()
+                    gv.k8sManifest()
                 }
             }
         }
