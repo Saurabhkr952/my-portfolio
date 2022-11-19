@@ -24,6 +24,7 @@ def k8sManifest() {
 }
 
 def update_k8s_manifest() {
+    echo "pushing updated manifest to repository"
     withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
     sh "git config --global user.email 'saurabhkr952@gmail.com'"
     sh "git config --global user.name 'Saurabh'"
@@ -32,7 +33,7 @@ def update_k8s_manifest() {
     sh "cat my-portfolio.yaml"
     sh "git add my-portfolio.yaml"
     sh "git commit -m 'Updated the my-portfolio yaml | Jenkins Pipeline'"
-    sh "git remote set-url origin https://github.com/Saurabhkr952/k8s_manifest.git HEAD:main/.git"
+    sh "git remote -v"
     sh "git push https://github.com/Saurabhkr952/k8s_manifest.git HEAD:main" 
     }      
 }
