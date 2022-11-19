@@ -25,21 +25,21 @@ pipeline {
                 }
             }
         }
-        stage("pushing it to dockerhub") {
+        stage("Pushing it to Dockerhub") {
             steps {
                 script {
                     gv.deployApp()
                 }
             }
         }
-        stage("checkout k8s manifest SCM") {
+        stage("Checkout k8s manifest SCM") {
             steps {
                 script {
                     gv.k8s_manifest()
                 }
             }
         }
-        stage("update k8s manifest repo") {
+        stage("Update k8s manifest repo") {
             steps {
                 script {
                     gv.update_k8s_manifest()
