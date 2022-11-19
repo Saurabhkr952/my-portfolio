@@ -25,7 +25,7 @@ def k8sManifest() {
 
 def update_k8s_manifest() {
     echo "pushing updated manifest to repository"
-    withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+    withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'password', usernameVariable: 'username')]) {
     sh "git config --global user.email 'saurabhkr952@gmail.com'"
     sh "git config --global user.name 'Saurabhkr952'"
     sh "cat my-portfolio.yaml"
