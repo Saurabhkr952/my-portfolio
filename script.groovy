@@ -18,7 +18,7 @@ def deployApp() {
 } 
 
 def k8sManifest() {
-    git credentialsId: 'f87a34a8-0e09-45e7-b9cf-6dc68feac670', 
+    git credentialsId: 'github-credentials', 
     url: 'https://github.com/Saurabhkr952/k8s_manifest.git',
     branch: 'main'
 }
