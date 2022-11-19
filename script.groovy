@@ -27,7 +27,7 @@ def update_k8s_manifest() {
     withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
     sh '''
     cat my-portfolio.yaml
-    sed -i 's+saurabhkr952/my-portfolio:.*+saurabhkr952/my-portfolio:35+g' my-portfolio.yaml
+    sed -i 's+saurabhkr952/my-portfolio:.*+saurabhkr952/my-portfolio:$IMAGE_NAME+g' my-portfolio.yaml
     cat my-portfolio.yaml
     git add my-portfolio.yaml
     git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
