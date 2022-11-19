@@ -46,5 +46,9 @@ pipeline {
                 }
             }
         }
+         post {
+        always {
+            emailext body: 'From Jenkins', subject: 'Build Successful', to 'saurabhkr952@gmail.com'
+        }
     }
 }
