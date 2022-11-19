@@ -32,7 +32,7 @@ def update_k8s_manifest() {
     sh "cat my-portfolio.yaml"
     sh "git add my-portfolio.yaml"
     sh "git commit -m 'Updated the my-portfolio yaml | Jenkins Pipeline'"
-    sh "git remote -v"
+    sh "git remote set-url origin https://github.com/Saurabhkr952/k8s_manifest.git HEAD:main/.git"
     sh "git push https://github.com/Saurabhkr952/k8s_manifest.git HEAD:main" 
     }      
 }
