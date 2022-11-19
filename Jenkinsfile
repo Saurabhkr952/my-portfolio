@@ -52,7 +52,7 @@ pipeline {
                     mimeType: 'text/html',to: "saurabhkr952@gmail.com"
             }
          success {
-               emailext body: 'A Test EMail', subject: 'Test', to: saurabhkr952@gmail.com
+               emailext body: 'A Test EMail', subject: 'Test', to: 'saurabhkr952@gmail.com'
           }      
     }
         }
