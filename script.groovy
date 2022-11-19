@@ -25,16 +25,15 @@ def k8sManifest() {
 
 def update_k8s_manifest() {
     withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-    sh '''
-    git config --global user.email "saurabhkr952@gmail.com"
-    git config --global user.name "Saurabh"
-    cat my-portfolio.yaml
-    sed -i 's+saurabhkr952/my-portfolio:.*+saurabhkr952/my-portfolio:$IMAGE_NAME+g' my-portfolio.yaml
-    cat my-portfolio.yaml
-    git add my-portfolio.yaml
-    git commit -m 'Updated the my-portfolio yaml | Jenkins Pipeline'
-    git remote -v
-    git push https://github.com/Saurabhkr952/k8s_manifest.git HEAD:main
+    sh "git config --global user.email "saurabhkr952@gmail.com""
+    sh "git config --global user.name "Saurabh""
+    sh "cat my-portfolio.yaml"
+    sh "sed -i 's+saurabhkr952/my-portfolio:.*+saurabhkr952/my-portfolio:$IMAGE_NAME+g' my-portfolio.yaml"
+    sh "cat my-portfolio.yaml
+    sh "git add my-portfolio.yaml"
+    sh "git commit -m 'Updated the my-portfolio yaml | Jenkins Pipeline'"
+    sh "git remote -v"
+    sh "git push https://github.com/Saurabhkr952/k8s_manifest.git HEAD:main"
     ''' 
     }      
 }
