@@ -25,7 +25,7 @@ pipeline {
                 }
             }
         }
-        stage("Pushing it to Dockerhub") {
+        stage("Pushing Artifact to Dockerhub") {
             steps {
                 script {
                     gv.deployApp()
@@ -45,16 +45,7 @@ pipeline {
                     gv.update_k8s_manifest()
                 }
             }
-            post {
-        failure {
-            emailext attachmentsPattern: 'test.zip', body: '''${SCRIPT, template="groovy-html.template"}''', 
-                    subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Failed", 
-                    mimeType: 'text/html',to: "saurabhkr952@gmail.com"
-            }
-         success {
-               emailext body: 'A Test EMail', subject: 'Test', to: 'saurabhkr952@gmail.com'
-          }      
-    }
+       
         }
     }
 }
