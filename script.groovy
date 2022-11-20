@@ -21,7 +21,7 @@ def deployApp() {
 def k8sManifest() {
     sh "git clone https://github.com/Saurabhkr952/k8s_manifest"
     sh "cd k8s_manifest"
-    sh "sed -i 's+saurabhkr952/my-portfolio:.*+saurabhkr952/my-portfolio:${IMAGE_NAME}-$BUILD_NUMBER+g' my-portfolio.yaml"
+    sh "sed -i 's+saurabhkr952/my-portfolio:.*+saurabhkr952/my-portfolio:${IMAGE_NAME}-$BUILD_NUMBER+g' /k8s_manifest/my-portfolio.yaml"
 }
 def update_k8s_manifest() {
     echo "pushing updated manifest to repository"
