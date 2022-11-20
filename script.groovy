@@ -24,7 +24,6 @@ def k8sManifest() {
     branch: 'main'
    }
     
-}
 def update_k8s_manifest() {
     echo "pushing updated manifest to repository"
     withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'password', usernameVariable: 'username')]) {
