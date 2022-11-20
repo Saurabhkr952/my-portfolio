@@ -1,8 +1,9 @@
 def incrementVersion(){
     echo 'Increment version'
     def matcher = readFile('package.json') =~ '"version": (".+"),'
-    def version = matcher[0][1]
-    env.IMAGE_NAME = "$version"  
+    def version = matcher[0][1],
+    int x = "$version"
+    env.IMAGE_NAME = x  
 }
 def buildImage() {
     echo "building the docker image..."
