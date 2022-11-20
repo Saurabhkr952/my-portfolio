@@ -1,9 +1,8 @@
 def incrementVersion(){
     echo 'Increment version'
     def matcher = readFile('package.json') =~ '"version": (".+"),'
-    def version = matcher[0][1],
-    int x = '$version'
-    env.IMAGE_NAME = "x"  
+    def version = matcher[0][1]
+    env.IMAGE_NAME = "$version"  
 }
 def buildImage() {
     echo "building the docker image..."
@@ -30,7 +29,7 @@ def update_k8s_manifest() {
     sh "git config --global user.email 'saurabhkr952@gmail.com'"
     sh "git config --global user.name 'Saurabhkr952'"
     sh "cat my-portfolio.yaml"
-    sh"sed -i 's+saurabhkr952/my-portfolio:.*+saurabhkr952/my-portfolio:$IMAGE_NAME+g' my-portfolio.yaml"
+    sh "sed -i 's+saurabhkr952/my-portfolio:.*+saurabhkr952/my-portfolio:$IMAGE_NAME+g' my-portfolio.yaml"
     sh "cat my-portfolio.yaml"
     sh "git add my-portfolio.yaml"
     sh "git commit -m 'Updated the my-portfolio yaml | Jenkins Pipeline'"
