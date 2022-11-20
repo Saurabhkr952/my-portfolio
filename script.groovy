@@ -34,7 +34,7 @@ def update_k8s_manifest() {
     sh "echo $IMAGE_NAME"    
     sh "cat my-portfolio.yaml"
     sh "git add my-portfolio.yaml"
-    sh "git commit -m 'Updated the my-portfolio yaml | Jenkins Pipeline'"
+    sh "git commit -m 'Updated the my-portfolio yaml | Image Version=$IMAGE_NAME'"
     sh "git remote -v"
     sh "git push https://$password@github.com/Saurabhkr952/k8s_manifest.git HEAD:main" 
     }      
