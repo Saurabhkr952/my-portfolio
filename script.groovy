@@ -6,14 +6,14 @@ def incrementVersion(){
 }
 def buildImage() {
     echo "building the docker image..."
-    sh "docker build -t saurabhkr952/my-portfolio:$IMAGE_NAME ."
+    sh "docker build -t saurabhkr952/my-portfolio:$IMAGE_NAME-$BUILD_NUMBER ."
 } 
 
 def deployApp() {
     echo 'deploying the application...'
     withCredentials([usernamePassword(credentialsId: 'docker-hub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
         sh "echo $PASS | docker login -u $USER --password-stdin"
-        sh "docker push saurabhkr952/my-portfolio:$IMAGE_NAME"
+        sh "docker push saurabhkr952/my-portfolio:$IMAGE_NAME-$BUILD_NUMBER"
     }
 } 
 
@@ -29,7 +29,7 @@ def update_k8s_manifest() {
     sh "git config --global user.email 'saurabhkr952@gmail.com'"
     sh "git config --global user.name 'Saurabhkr952'"
     sh "cat my-portfolio.yaml"
-    sh "sed -i 's+saurabhkr952/my-portfolio:.*+saurabhkr952/my-portfolio:$IMAGE_NAME+g' my-portfolio.yaml"
+    sh "sed -i 's+saurabhkr952/my-portfolio:.*+saurabhkr952/my-portfolio:$IMAGE_NAME-$BUILD_NUMBER+g' my-portfolio.yaml"
     sh "cat my-portfolio.yaml"
     sh "git add my-portfolio.yaml"
     sh "git commit -m 'Updated the my-portfolio yaml | Jenkins Pipeline'"
