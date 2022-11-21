@@ -39,6 +39,15 @@ pipeline {
                 }
             }
         }
+        stage('indentifying misconfigs using datree'){
+            steps{
+                script{
+                        withEnv(['DATREE_TOKEN=7CajYaZJkJ8GRXFbWN1Rac']) {
+                              sh 'datree test *.yaml --only-k8s-files'
+                        }
+                }
+            }
+        }
         stage("Update k8s manifest repo") {
             steps {
                 script {
