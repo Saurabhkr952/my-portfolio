@@ -45,7 +45,11 @@ pipeline {
                     gv.update_k8s_manifest()
                 }
             }
-       
+        }
+    }
+    post {
+        always {
+            emailext body: 'Jenkins Build', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Build Successful'
         }
     }
 }
