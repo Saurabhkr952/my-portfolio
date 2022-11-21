@@ -56,7 +56,7 @@ pipeline {
              mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> Build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Build Successful: Project name -> ${env.JOB_NAME}", to: "saurabhkr952@gmail.com";  
          }  
          failure {  
-             mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> Build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR Unsuccessful: Project name -> ${env.JOB_NAME}", to: "saurabhkr952@gmail.com";  
+             mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> Build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Build Unsuccessful: Project name -> ${env.JOB_NAME}", to: "saurabhkr952@gmail.com";  
          } 
     }
 }
