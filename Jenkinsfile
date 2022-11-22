@@ -52,7 +52,7 @@ pipeline {
              echo 'This will always run'  
          }  
          success {  
-             echo 'This will run only if successful'  
+             echo 'Sending email about Build Success or Failed'  
              mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> Build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Build Successful: Project name -> ${env.JOB_NAME}", to: "saurabhkr952@gmail.com";  
          }  
          failure {  
