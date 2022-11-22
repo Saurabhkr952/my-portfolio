@@ -3,10 +3,11 @@ def incrementVersion(){
     def matcher = readFile('package.json') =~ '"version": (.+),'
     def version = matcher[0][1]
     env.IMAGE_NAME = "${version}"
-    env.TEXT_MANIPULATE = "${textManipulate}"
+    
 }
 def textManipulate() {
     sh "sed -i 's+saurabhkr952/my-portfolio:.*+saurabhkr952/my-portfolio:$IMAGE_NAME-$BUILD_NUMBER+g' my-portfolio.yaml."
+    env.TEXT_MANIPULATE = "${textManipulate}"
 } 
 
 def buildImage() {
