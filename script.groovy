@@ -6,8 +6,8 @@ def incrementVersion(){
     
 }
 def textManipulate() {
-    "sed -i 's+saurabhkr952/my-portfolio:.*+saurabhkr952/my-portfolio:$IMAGE_NAME-$BUILD_NUMBER+g' my-portfolio.yaml"
-    env.TEXT_MANIPULATE = "${textManipulate}"
+    def mani = "${ 's+saurabhkr952/my-portfolio:.*+saurabhkr952/my-portfolio:$IMAGE_NAME-$BUILD_NUMBER+g'}"
+    env.TEXT_MANIPULATE = "${mani}"
 } 
 
 def buildImage() {
@@ -33,7 +33,7 @@ def k8sManifest() {
 def update_k8s_manifest() {
     echo "pushing updated manifest to repository"
     withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'password', usernameVariable: 'username')]) {
-    sh "$TEXT_MANIPULATE"
+    sh "${mani}"
     sh "git add my-portfolio.yaml"
     sh "git commit -m 'Updated the my-portfolio yaml | Image Version=$IMAGE_NAME'"
     sh "git remote -v"
