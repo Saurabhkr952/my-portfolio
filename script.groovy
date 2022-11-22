@@ -5,7 +5,7 @@ def incrementVersion(){
     env.IMAGE_NAME = "${version}"
 }
 def buildImage() {
-    echo "building the docker image..."
+    echo "Building the docker image..."
     sh "docker build -t saurabhkr952/my-portfolio:$IMAGE_NAME-$BUILD_NUMBER ."
 } 
 
