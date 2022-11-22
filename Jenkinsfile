@@ -39,7 +39,7 @@ pipeline {
                 }
             }
         }
-        stage("Update k8s manifest repo") {
+        stage("Update k8s manifest Repo") {
             steps {
                 script {
                     gv.update_k8s_manifest()
