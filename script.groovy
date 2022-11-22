@@ -27,7 +27,7 @@ def k8sManifest() {
 def update_k8s_manifest() {
     echo "pushing updated manifest to repository"
     withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'password', usernameVariable: 'username')]) {
-    sh "sed -i 's+saurabhkr952/my-portfolio: 0.1.0-75+saurabhkr952/my-portfolio:${IMAGE_NAME}-$BUILD_NUMBER+g' my-portfolio.yaml"
+     sh "sed -i 's+saurabhkr952/my-portfolio:.*+saurabhkr952/my-portfolio:${IMAGE_NAME}-$BUILD_NUMBER+g' my-portfolio.yaml"
     sh "git add my-portfolio.yaml"
     sh "git commit -m 'Updated the my-portfolio yaml | Image Version=$IMAGE_NAME'"
     sh "git remote -v"
