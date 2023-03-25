@@ -3,6 +3,7 @@ def gv
 pipeline {
     agent {
         docker { image 'docker:latest' }
+        args '-u root'
     }
 
     stages {
