@@ -3,6 +3,7 @@ def gv
 pipeline {
     agent {
         docker { image 'scratch' }
+        args '-v /var/run/docker.sock:/var/run/docker.sock'
     }
 
     stages {
