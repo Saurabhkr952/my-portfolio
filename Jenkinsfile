@@ -2,7 +2,7 @@ def gv
 
 pipeline {
     agent {
-        docker { image 'scratch' }
+        docker { image '19-alpine3.16' }
         args '-v /var/run/docker.sock:/var/run/docker.sock'
     }
 
