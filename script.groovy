@@ -8,7 +8,7 @@ def incrementVersion(){
 
 def buildImage() {
     echo 'Building Docker Image'
-    sh "docker build -t saurabhkr952/my-portfolio:$IMAGE_NAME ."
+    sh "sudo docker build -t saurabhkr952/my-portfolio:$IMAGE_NAME ."
 } 
 
 def deployApp() {
