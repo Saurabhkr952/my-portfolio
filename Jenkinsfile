@@ -2,7 +2,8 @@ def gv
 
 pipeline {
     agent {
-        docker { image 'node' }
+        docker { image 'node:19-alpine3.16' }
+        args '-u root:root'
     }
 
     stages {
