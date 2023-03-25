@@ -1,7 +1,9 @@
 def gv
 
 pipeline {
-    agent any
+    agent {
+        docker { image 'scratch' }
+    }
 
     stages {
         stage("Init") {
