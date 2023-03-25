@@ -2,7 +2,7 @@ def gv
 
 pipeline {
     agent {
-        docker { image 'scratch' }
+        docker { image 'node' }
     }
 
     stages {
